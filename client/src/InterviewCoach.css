@@ -1,0 +1,343 @@
+/* Basic CSS styles to replicate the design without Tailwind CSS */
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: linear-gradient(to right, #2c3e99, #4c1d95); /* Adjusted main background gradient */
+  overflow: hidden;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: linear-gradient(90deg, #5a3ea1, #2c3e99);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.page-header p {
+  margin: 4px 0 0 0;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #cbd5e0;
+}
+
+.page-header .user-info {
+  text-align: right;
+}
+
+.page-header .user-info p {
+  margin: 0;
+}
+
+.page-header .user-info .email {
+  color: #a0aec0;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.interview-coach {
+  display: flex;
+  height: calc(100vh - 88px); /* Adjust height to exclude header */
+  
+  overflow-y: auto;
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #4c1d95, #6b46c1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.domain-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.domain-button:hover {
+  background-color: #5a3ea1;
+}
+
+.domain-button.selected {
+  background-color: #2b6cb0;
+}
+
+.domain-icon {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 32px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.main-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.interview-coach {
+  display: flex;
+  height: calc(100vh - 88px); /* Adjust height to exclude header */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.interview-coach::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.header p {
+  color: #cbd5e0;
+  margin: 4px 0 0 0;
+}
+
+.header .user-info {
+  text-align: right;
+}
+
+.header .user-info p {
+  margin: 0;
+}
+
+.header .user-info .email {
+  color: #a0aec0;
+  font-size: 0.875rem;
+}
+
+.welcome-section {
+  /* background: linear-gradient(to right, #2b6cb0, #2c5282); */
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 48px; /* Increased gap */
+}
+.domain-icon, .action-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  stroke-width: 1.8;
+  vertical-align: middle;
+}
+
+.welcome-section svg {
+  margin: 0 auto 16px auto;
+  width: 48px;
+  height: 48px;
+  stroke: #63b3ed;
+}
+
+.welcome-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-section p {
+  margin-bottom: 1rem;
+}
+
+.tip-box {
+  background-color: rgba(66, 153, 225, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.progress-section {
+  margin-top: 2rem;
+}
+
+.progress-section h3 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.progress-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-icon {
+  background-color: #2b6cb0;
+  border-radius: 9999px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+.progress-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-text .value {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.progress-text .label {
+  color: #cbd5e0;
+  font-size: 0.875rem;
+}
+
+.actions-section {
+  margin-top: 2rem;
+}
+
+.actions-section-below-sidebar {
+  margin-top: 2rem;
+  padding: 20px;
+  background: linear-gradient(135deg, #6b46c1, #805ad5);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actions-section-below-sidebar h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.interview-chat-button,
+.progress-dashboard-button,
+.start-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.interview-chat-button {
+  background: rgba(66, 153, 225, 0.3);
+  color: #bee3f8;
+}
+
+.interview-chat-button:hover {
+  background: rgba(66, 153, 225, 0.5);
+}
+
+.progress-dashboard-button {
+  background: rgba(66, 153, 225, 0.15);
+  color: #a0aec0;
+}
+
+.progress-dashboard-button:hover {
+  background: rgba(66, 153, 225, 0.3);
+  color: #bee3f8;
+}
+
+.start-button {
+  background: linear-gradient(90deg, #4299e1, #805ad5);
+  color: white;
+}
+
+.start-button:hover {
+  background: linear-gradient(90deg, #3182ce, #6b46c1);
+}
+
+.signout-button {
+  margin-top: 1rem;
+  color: #a0aec0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.signout-button:hover {
+  color: white;
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}

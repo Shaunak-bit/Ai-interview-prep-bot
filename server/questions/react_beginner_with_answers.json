@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What are React Hooks?",
+    "expected_answer": "React Hooks are functions that let you use state and other React features without writing a class."
+  },
+  {
+    "question": "What is the virtual DOM?",
+    "expected_answer": "The virtual DOM is a lightweight copy of the real DOM that React uses to optimize updates."
+  },
+  {
+    "question": "What is the difference between props and state?",
+    "expected_answer": "Props are read-only and passed from parent to child, while state is managed within the component and can change over time."
+  },
+  {
+    "question": "Explain the useEffect hook.",
+    "expected_answer": "useEffect lets you perform side effects in function components, such as data fetching or subscriptions."
+  },
+  {
+    "question": "What is JSX?",
+    "expected_answer": "JSX is a syntax extension for JavaScript that looks like HTML and is used with React to describe UI elements."
+  },
+  {
+    "question": "How do you create a component in React?",
+    "expected_answer": "You create a component by defining a function or class that returns React elements."
+  },
+  {
+    "question": "What is the role of keys in React lists?",
+    "expected_answer": "Keys help React identify which items have changed, are added, or removed for efficient rendering."
+  },
+  {
+    "question": "What is the purpose of the useState hook?",
+    "expected_answer": "useState allows you to add state to functional components."
+  },
+  {
+    "question": "Explain the component lifecycle in React.",
+    "expected_answer": "The component lifecycle includes mounting, updating, and unmounting phases where you can run code at specific times."
+  },
+  {
+    "question": "How does React handle forms?",
+    "expected_answer": "React handles forms by managing form elements' state and handling user input through event handlers."
+  }
+]

@@ -1,0 +1,163 @@
+/* Container with gradient background */
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* background: linear-gradient(135deg, #4f46e5, #1e40af); */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Card container */
+.signup-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px 32px 32px 32px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: #e0e7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.signup-card::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Icon container */
+.signup-icon {
+  background: linear-gradient(135deg, #4f46e5, #a855f7);
+  border-radius: 50%;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Title */
+.signup-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+/* Subtitle */
+.signup-subtitle {
+  font-size: 1rem;
+  color: #c7d2fe;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+/* Form styles */
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.signup-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #e0e7ff;
+}
+
+/* Input wrapper for icon and input */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Input icon */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #a5b4fc;
+  pointer-events: none;
+}
+
+/* Inputs */
+.signup-form input {
+  
+  padding: 12px 44px 12px 40px;
+  border-radius: 8px;
+  border: 1.5px solid #6366f1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e7ff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.signup-form input::placeholder {
+  color: #a5b4fc;
+}
+
+/* Input focus */
+.signup-form input:focus {
+  border-color: #a855f7;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Password toggle icon */
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #a5b4fc;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Button */
+.signup-button {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f46e5, #a855f7);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 8px;
+}
+
+.signup-button:hover {
+  background: linear-gradient(135deg, #4338ca, #9333ea);
+}
+
+/* Footer text */
+.signup-footer {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #c7d2fe;
+  text-align: center;
+}
+
+.signup-footer a {
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-footer a:hover {
+  text-decoration: underline;
+}

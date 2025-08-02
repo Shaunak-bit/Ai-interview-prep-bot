@@ -1,0 +1,145 @@
+/* Full page gradient background */
+.signin-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card container */
+.signin-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 40px 32px 32px 32px;
+  width: 360px;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+}
+
+/* Icon circle with gradient background */
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4b2cc3, #8a3ffc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Title and subtitle */
+.signin-title {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.signin-subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: #d1d5db;
+}
+
+/* Form styles */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Labels */
+.input-label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+/* Input wrapper for icon and input */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Input icon */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Input fields */
+.signin-input {
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.signin-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Password toggle button */
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Sign in button */
+.signin-button {
+  background: linear-gradient(90deg, #4b2cc3, #8a3ffc);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 0;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.3s ease;
+}
+
+.signin-button:hover {
+  background: linear-gradient(90deg, #3a1db0, #6f2edb);
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.signup-link {
+  color: #8a3ffc;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}

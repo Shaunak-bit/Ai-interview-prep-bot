@@ -1,0 +1,423 @@
+<<<<<<< import React, { useEffect, useState } from 'react';
+import { useUser } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import './profile.css';
+=======
+import React, { useEffect, useState } from 'react';
+import { useUser } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import {
+  Globe, Code, Database, Coffee, FileCode, Server, User, ChevronRight,
+  BarChart2, Star, Target, BadgeCheck, CalendarCheck, Award, LineChart,
+  CheckCircle
+} from 'lucide-react';
+import './profile.css';
+>>>>>>> import React, { useEffect, useState } from 'react';
+
+<<<<<<< const availableDomains = [
+  'React', 'Node.js', 'Python', 'Java', 'Data Science', 'Web Development', 'HR & Behavioral'
+];
+
+const Profile = () => {
+  const { user } = useUser();
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState({
+    name: '',
+    bio: '',
+    avatar: '',
+    preferredDomains: [],
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`http://localhost:5000/api/profile/${user.email}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setProfile({
+          name: data.name,
+          bio: data.bio,
+          avatar: data.avatar,
+          preferredDomains: data.preferredDomains,
+        });
+      }
+    } catch (err) {
+      console.error('Error fetching profile:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`http://localhost:5000/api/profile/${user.email}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(profile),
+      });
+      if (res.ok) {
+        alert('Profile updated successfully!');
+        navigate('/dashboard');
+      } else {
+        alert('Failed to update profile.');
+      }
+    } catch (err) {
+      console.error('Update error:', err);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.email) fetchProfile();
+  }, [user]);
+
+  const handleDomainToggle = (domain) => {
+    setProfile((prev) => {
+      const alreadySelected = prev.preferredDomains.includes(domain);
+      const updatedDomains = alreadySelected
+        ? prev.preferredDomains.filter((d) => d !== domain)
+        : [...prev.preferredDomains, domain];
+      return { ...prev, preferredDomains: updatedDomains };
+    });
+  };
+
+  if (loading) return <div className="profile-container">Loading profile...</div>;
+
+  return (
+    <div className="profile-container">
+      <h2>Your Profile</h2>
+      <div className="profile-form">
+        <label>Name</label>
+        <input
+          type="text"
+          value={profile.name}
+          onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+        />
+
+        <label>Bio</label>
+        <textarea
+          rows={3}
+          value={profile.bio}
+          onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
+        />
+
+        <label>Avatar URL</label>
+        <input
+          type="text"
+          value={profile.avatar}
+          onChange={(e) => setProfile({ ...profile, avatar: e.target.value })}
+        />
+
+        <label>Preferred Domains</label>
+        <div className="domain-checkbox-group">
+          {availableDomains.map((domain) => (
+            <label key={domain}>
+              <input
+                type="checkbox"
+                checked={profile.preferredDomains.includes(domain)}
+                onChange={() => handleDomainToggle(domain)}
+              />
+              {domain}
+            </label>
+          ))}
+        </div>
+
+        <div className="profile-buttons">
+          <button className="save-button" onClick={updateProfile}>Save</button>
+          <button className="cancel-button" onClick={() => navigate('/dashboard')}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;
+=======
+const availableDomains = [
+  { name: 'React', icon: <Code className="domain-icon" /> },
+  { name: 'Node.js', icon: <Server className="domain-icon" /> },
+  { name: 'Python', icon: <FileCode className="domain-icon" /> },
+  { name: 'Java', icon: <Coffee className="domain-icon" /> },
+  { name: 'Data Science', icon: <Database className="domain-icon" /> },
+  { name: 'Web Development', icon: <Globe className="domain-icon" /> },
+  { name: 'HR & Behavioral', icon: <User className="domain-icon" /> },
+];
+
+const Profile = () => {
+  const { user } = useUser();
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState({
+    name: '',
+    bio: '',
+    avatar: '',
+    preferredDomains: [],
+  });
+  const [loading, setLoading] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+
+  // Progress and achievements state
+  const [progress, setProgress] = useState({
+    totalInterviews: 0,
+    successRate: 0,
+    averageScore: 0,
+    practiceHours: 0,
+    currentStreak: 0,
+  });
+  const [achievements, setAchievements] = useState({});
+  const [recentSessions, setRecentSessions] = useState([]);
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`http://localhost:5000/api/profile/${user.email}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setProfile({
+          name: data.name,
+          bio: data.bio,
+          avatar: data.avatar,
+          preferredDomains: data.preferredDomains,
+        });
+      }
+    } catch (err) {
+      console.error('Error fetching profile:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchProgressAndAchievements = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      const res = await fetch(`http://localhost:5000/api/progress/${user.email}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const sessions = await res.json();
+
+        // Calculate progress metrics
+        const totalInterviews = sessions.length;
+        const passedSessions = sessions.filter(s => s.score >= 7).length;
+        const successRate = totalInterviews > 0 ? Math.round((passedSessions / totalInterviews) * 100) : 0;
+        const averageScore = totalInterviews > 0 ? (sessions.reduce((sum, s) => sum + s.score, 0) / totalInterviews).toFixed(1) : 0;
+        const practiceHours = sessions.reduce((sum, s) => sum + (s.durationMinutes || 0), 0) / 60; // convert minutes to hours
+        // Calculate current streak (consecutive days with sessions)
+        const sortedSessions = [...sessions].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        let streak = 0;
+        let lastDate = null;
+        for (const session of sortedSessions) {
+          const sessionDate = new Date(session.timestamp);
+          if (!lastDate) {
+            streak = 1;
+          } else {
+            const diffDays = Math.floor((lastDate - sessionDate) / (1000 * 60 * 60 * 24));
+            if (diffDays === 1) {
+              streak++;
+            } else if (diffDays > 1) {
+              break;
+            }
+          }
+          lastDate = sessionDate;
+        }
+
+        setProgress({
+          totalInterviews,
+          successRate,
+          averageScore,
+          practiceHours: Math.round(practiceHours),
+          currentStreak: streak,
+        });
+
+        // Calculate achievements (only unlocked)
+        const unlockedAchievements = {};
+        sessions.forEach(session => {
+          if (session.score >= 8) unlockedAchievements['excellence'] = true;
+          if (session.score === session.totalQuestions) unlockedAchievements['perfect10'] = true;
+          if (session.durationMinutes && session.durationMinutes < 30) unlockedAchievements['speedDemon'] = true;
+          // Add other achievement conditions as needed
+        });
+        setAchievements(unlockedAchievements);
+
+        // Set recent sessions (last 5)
+        setRecentSessions(sortedSessions.slice(0, 5));
+      }
+    } catch (err) {
+      console.error('Error fetching progress:', err);
+    }
+  };
+
+  const updateProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await fetch(`http://localhost:5000/api/profile/${user.email}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(profile),
+      });
+      if (res.ok) {
+        alert('Profile updated successfully!');
+        setEditMode(false);
+        navigate('/dashboard');
+      } else {
+        alert('Failed to update profile.');
+      }
+    } catch (err) {
+      console.error('Update error:', err);
+    }
+  };
+
+  useEffect(() => {
+    if (user?.email) {
+      fetchProfile();
+      fetchProgressAndAchievements();
+    }
+  }, [user]);
+
+  const handleDomainToggle = (domain) => {
+    setProfile((prev) => {
+      const alreadySelected = prev.preferredDomains.includes(domain);
+      const updatedDomains = alreadySelected
+        ? prev.preferredDomains.filter((d) => d !== domain)
+        : [...prev.preferredDomains, domain];
+      return { ...prev, preferredDomains: updatedDomains };
+    });
+  };
+
+  if (loading) return <div className="profile-container">Loading profile...</div>;
+
+  return (
+    <div className="profile-container">
+      <div className="profile-header">
+        <img src={profile.avatar} alt="Avatar" className="profile-avatar" />
+        <div className="profile-info">
+          <h2>{profile.name}</h2>
+          {!editMode && <button className="edit-profile-btn" onClick={() => setEditMode(true)}>✏️ Edit Profile</button>}
+        </div>
+      </div>
+
+      <div className="profile-form">
+        <label>Bio</label>
+        {editMode ? (
+          <textarea
+            rows={3}
+            value={profile.bio}
+            onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
+          />
+        ) : (
+          <p className="bio-text">{profile.bio}</p>
+        )}
+
+        <label>Preferred Domains</label>
+        {editMode ? (
+          <div className="domain-checkbox-group">
+            {availableDomains.map((domain) => (
+              <label key={domain.name} className="domain-label">
+                <input
+                  type="checkbox"
+                  checked={profile.preferredDomains.includes(domain.name)}
+                  onChange={() => handleDomainToggle(domain.name)}
+                />
+                {domain.icon} {domain.name}
+              </label>
+            ))}
+          </div>
+        ) : (
+          <div className="preferred-domains-display">
+            {profile.preferredDomains.map((domain) => {
+              const domainObj = availableDomains.find(d => d.name === domain);
+              return (
+                <span key={domain} className="domain-badge">
+                  {domainObj?.icon} {domain}
+                </span>
+              );
+            })}
+          </div>
+        )}
+
+        {editMode && (
+          <div className="profile-buttons">
+            <button className="save-button" onClick={updateProfile}>Save</button>
+            <button className="cancel-button" onClick={() => setEditMode(false)}>Cancel</button>
+          </div>
+        )}
+      </div>
+
+      <section className="achievements-section">
+        <h3>Achievements</h3>
+        <div className="achievement-cards">
+          {Object.entries(achievements).map(([key, unlocked]) => (
+            unlocked && (
+              <div key={key} className="achievement-card unlocked">
+                <CheckCircle className="checkmark-icon" />
+                <div>
+                  <h4>{key === 'excellence' ? 'Excellence' : key === 'perfect10' ? 'Perfect 10' : key === 'speedDemon' ? 'Speed Demon' : key}</h4>
+                  <p>Achievement unlocked</p>
+                </div>
+              </div>
+            )
+          ))}
+        </div>
+      </section>
+
+      <section className="progress-metrics">
+        <h3>Progress Metrics</h3>
+        <div className="progress-cards">
+          <div className="progress-card">
+            <BarChart2 className="icon" />
+            <p className="value">{progress.totalInterviews}</p>
+            <p className="label">Total Interviews</p>
+          </div>
+          <div className="progress-card">
+            <Star className="icon" />
+            <p className="value">{progress.successRate}%</p>
+            <p className="label">Success Rate</p>
+          </div>
+          <div className="progress-card">
+            <Target className="icon" />
+            <p className="value">{progress.averageScore}</p>
+            <p className="label">Average Score</p>
+          </div>
+          <div className="progress-card">
+            <CalendarCheck className="icon" />
+            <p className="value">{progress.practiceHours}h</p>
+            <p className="label">Practice Hours</p>
+          </div>
+          <div className="progress-card">
+            <LineChart className="icon" />
+            <p className="value">{progress.currentStreak}</p>
+            <p className="label">Current Streak</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="interview-history">
+        <h3>Interview History (Last 5)</h3>
+        <ul className="recent-sessions-list">
+          {recentSessions.map((session, index) => (
+            <li key={index} className="session-item">
+              <p><strong>Score:</strong> {session.score}/{session.totalQuestions}</p>
+              <p><strong>Date:</strong> {new Date(session.timestamp).toLocaleString()}</p>
+              <p><strong>Duration:</strong> {session.durationMinutes} min</p>
+              <p><strong>Domain:</strong> {session.domain}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+};
+
+export default Profile;

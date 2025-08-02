@@ -1,0 +1,305 @@
+/* Profile.css – full file, ready to paste */
+
+/* ---------- 1.  Page wrapper ---------- */
+.profile-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: linear-gradient(to right, #2c3e99, #4c1d95);
+  color: white;
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+  font-family: Arial, sans-serif;
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: none; /* Firefox */
+}
+.profile-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* ---------- 2.  Header: flex row, no background ---------- */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  /* ❌  white bar removed  */
+  background: transparent;
+}
+
+/* ---------- 3.  Avatar: round background circle ---------- */
+.profile-avatar,
+.default-avatar {
+  /* circle dimensions */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* background ring */
+  background: white;
+  border: 3px solid #a78bfa;
+  /* center contents */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  object-fit: cover; /* keeps uploaded image round */
+}
+
+/* fallback emoji inside default-avatar */
+.default-avatar {
+  font-size: 2.25rem;
+}
+
+.profile-info {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.edit-profile-btn {
+  background-color: #4c1d95;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.edit-profile-btn:hover {
+  background-color: #6d28d9;
+}
+
+/* ---------- Remaining sections unchanged ---------- */
+.profile-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.profile-form textarea,
+.profile-form input[type='text'] {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #312e81;
+  color: white;
+  font-size: 1rem;
+  resize: vertical;
+}
+.bio-text {
+  background-color: #312e81;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  min-height: 72px;
+  white-space: pre-wrap;
+}
+
+.domain-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.domain-label {
+  background-color: #4338ca;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background-color 0.2s ease;
+}
+.domain-label input {
+  margin-right: 0.3rem;
+  cursor: pointer;
+}
+
+.preferred-domains-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.domain-badge {
+  background-color: #4338ca;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.profile-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.save-button,
+.cancel-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.save-button {
+  background-color: #4c1d95;
+  color: white;
+}
+.save-button:hover {
+  background-color: #6d28d9;
+}
+.cancel-button {
+  background-color: transparent;
+  color: #a78bfa;
+  border: 2px solid #a78bfa;
+}
+.cancel-button:hover {
+  background-color: #312e81;
+}
+
+/* Achievements Section */
+.achievements-section {
+  margin-top: 3rem;
+}
+.achievements-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.achievement-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.achievement-card {
+  position: relative;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: white;
+  flex: 1 1 200px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.achievement-card .checkmark-icon {
+  color: #34d399;
+  background: #1e1b4b;
+  border-radius: 50%;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+}
+.achievement-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(167, 139, 250, 0.6);
+}
+.achievement-card div h4 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.achievement-card div p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Progress Metrics Section */
+.progress-metrics {
+  margin-top: 3rem;
+}
+.progress-metrics h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.progress-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.progress-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  color: white;
+}
+.progress-card .icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+.progress-card .value {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.progress-card .label {
+  font-size: 0.875rem;
+  color: #cbd5e0;
+}
+
+/* Interview History Section */
+.interview-history {
+  margin-top: 3rem;
+}
+.interview-history h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.recent-sessions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+.session-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.session-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+.session-item p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+.session-item strong {
+  color: #f0f0f0;
+}
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

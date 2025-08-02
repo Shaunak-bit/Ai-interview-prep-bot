@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Python virtual environment
+server/venv/
+
+# Env variables
+.env
+
+# Uploads and builds
+uploads/
+build/
+dist/
+
+# Editor settings
+.vscode/
+
+# OS junk files
+.DS_Store
+Thumbs.db
