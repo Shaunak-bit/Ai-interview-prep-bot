@@ -1,4 +1,4 @@
-I Interview Prep Bot
+I build Prep Bot
 An intelligent full-stack web application that helps users prepare for technical interviews by simulating real-time question/answer sessions, tracking progress, and offering personalized feedback.
 
 📌 Features
